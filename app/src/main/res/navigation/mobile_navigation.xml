@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.incolor.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home">
+
+        <!--<action
+            android:id="@+id/action_HomeFragment_to_HomeSecondFragment"
+            app:destination="@id/nav_home_second" />-->
+    </fragment>
+    <!--<fragment
+        android:id="@+id/nav_home_second"
+        android:name="com.example.incolor.ui.home.HomeSecondFragment"
+        android:label="@string/home_second"
+        tools:layout="@layout/fragment_home_second">
+        <action
+            android:id="@+id/action_HomeSecondFragment_to_HomeFragment"
+            app:destination="@id/nav_home" />
+
+        <argument
+            android:name="myArg"
+            app:argType="string" />
+    </fragment>-->
+
+    <fragment
+        android:id="@+id/nav_color_models"
+        android:name="com.example.incolor.ui.color_models.ColorModelsFragment"
+        android:label="@string/menu_color_models"
+        tools:layout="@layout/fragment_color_models">
+
+        <action
+            android:id="@+id/action_ColorModelsFragment_to_StartColorModelsFragment"
+            app:destination="@id/nav_start_color_models" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_start_color_models"
+        android:name="com.example.incolor.ui.color_models.StartColorModelsFragment"
+        android:label="@string/menu_color_models"
+        tools:layout="@layout/fragment_start_color_models">
+        <action
+            android:id="@+id/action_StartColorModelsFragment_to_ColorModelsFragment"
+            app:destination="@id/nav_color_models" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_newton_fractal"
+        android:name="com.example.incolor.ui.newton_fractal.NewtonFractalFragment"
+        android:label="@string/menu_newton_fractal"
+        tools:layout="@layout/fragment_newton_fractal" />
+
+    <fragment
+        android:id="@+id/nav_info"
+        android:name="com.example.incolor.ui.info.InfoFragment"
+        android:label="@string/menu_info"
+        tools:layout="@layout/fragment_info" />
+</navigation>
