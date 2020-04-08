@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/headerLayout"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
     android:background="@drawable/side_nav_bar"
@@ -20,7 +21,7 @@
         android:textSize="30sp" />
 
     <TextView
-        android:id="@+id/txtColorHash"
+        android:id="@+id/txtColorHex"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"
@@ -38,7 +39,7 @@
         android:textSize="25sp" />
 
     <TextView
-        android:id="@+id/txtColorHsl"
+        android:id="@+id/txtColorHsv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"

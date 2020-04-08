@@ -38,6 +38,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
@@ -384,6 +386,23 @@ public class ColorModelsFragment extends Fragment implements View.OnClickListene
         int greenProgress = 0;
         int blueProgress = 0;
         RGB activeColor;
+        ExecutorService redService;
+        ExecutorService greenService;
+        ExecutorService blueService;
+        //Thread[] threads;
+
+
+        ColorizationHandler() {
+            redProgress = 0;
+            greenProgress = 0;
+            blueProgress = 0;
+            /*hreads = new Thread[3];
+            for(Thread temp: threads)
+                temp = null;*/
+            redService = Executors.newSingleThreadExecutor();
+            greenService = Executors.newSingleThreadExecutor();
+            blueService = Executors.newSingleThreadExecutor();
+        }
 
         @SuppressLint("SetTextI18n")
         @Override
@@ -415,6 +434,9 @@ public class ColorModelsFragment extends Fragment implements View.OnClickListene
 
         @Override
         public void onStopTrackingTouch(SeekBar seekBar) {
+
+            final Bitmap changedBitmap = bitmap;
+
             switch (activeColor) {
                 case RED:
                     colorful.setRedColorValue(redProgress);
@@ -436,8 +458,59 @@ public class ColorModelsFragment extends Fragment implements View.OnClickListene
             final int red = colorful.getRedColorValue();
             final int green = colorful.getGreenColorValue();
             final int blue = colorful.getBlueColorValue();
-            final Bitmap changedBitmap = bitmap;
-            new Thread(new Runnable() {
+
+            switch (activeColor) {
+                case RED:
+                    /*if(threads[0] != null) {
+                        threads[0].interrupt();
+                        threads[0] = null;
+                    }*/
+                    redService.submit(new Runnable() {
+                        @Override
+                        public void run() {
+                            pixelProcess(changedBitmap, red, green, blue);
+                        }
+                    }
+                    );
+                    //threads[0].start();
+                    break;
+                case GREEN:
+                    /*if(threads[1] != null) {
+                        threads[1].interrupt();
+                        threads[1] = null;
+                    }*/
+                    //greenSeekBar.setEnabled(false);
+                    //if(!greenService.isTerminated())
+                    //    greenService.shutdownNow();
+                    greenService.submit(new Runnable() {
+                        @Override
+                        public void run() {
+                            pixelProcess(changedBitmap, red, green, blue);
+                            //greenSeekBar.setEnabled(true);
+                            //greenSeekBar.setEnabled(true);
+                        }
+                    }
+                    );
+
+
+                    //threads[1].start();
+                    break;
+                case BLUE:
+                    /*if(threads[2] != null) {
+                        threads[2].stop();
+                        //threads[2] = null;
+                    }*/
+                    blueService.submit(new Runnable() {
+                        @Override
+                        public void run() {
+                            pixelProcess(changedBitmap, red, green, blue);
+                        }
+                    }
+                    );
+                    //threads[2].start();
+                    break;
+            }
+           /* service.submit(new Runnable() {
                 @Override
                 public void run() {
                     int bitmapWidth = bitmap.getWidth();
@@ -476,10 +549,10 @@ public class ColorModelsFragment extends Fragment implements View.OnClickListene
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
-                                /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                *//*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                                     progressBar.setProgress(progress, true);
                                 } else
-                                    progressBar.setProgress(progress);*/
+                                    progressBar.setProgress(progress);*//*
                                 imgPhoto.setImageBitmap(localBitmap);
                             }
                         });
@@ -493,14 +566,80 @@ public class ColorModelsFragment extends Fragment implements View.OnClickListene
                             //progressBar.setVisibility(View.INVISIBLE);
                         }
                     });
+                    *//*handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            progressBar.setVisibility(View.INVISIBLE);
+                        }
+                    });*//*
+                }
+            });*/
+        }
+
+        private void pixelProcess(final Bitmap changedBitmap, final int red, final int green,
+                                  final int blue) {
+            int bitmapWidth = bitmap.getWidth();
+            int bitmapHeight = bitmap.getHeight();
+
+            Bitmap.Config bitmapConfig = bitmap.getConfig();
+            final Bitmap localBitmap = Bitmap.createBitmap(bitmapWidth, bitmapHeight, bitmapConfig);
+
+            for (int row = 0; row < bitmapWidth; row++) {
+
+                final int progress = (int) (((row + 1) / (float) bitmapWidth) * 100);
+                for (int column = 0; column < bitmapHeight; column++) {
+                    int pixelColor = colorful.getBitmap().getPixel(row, column);
+                    int changedPixel = changedBitmap.getPixel(row, column);
+
+                    switch (colorful.getActiveColor()) {
+                        case RED:
+                            pixelColor = Color.argb(Color.alpha(pixelColor),
+                                    (int) (red / 100.0 * Color.red(pixelColor)),
+                                    Color.green(changedPixel), Color.blue(changedPixel));
+                            break;
+                        case GREEN:
+                            pixelColor = Color.argb(Color.alpha(pixelColor), Color.red(changedPixel),
+                                    (int) (green / 100.0 * Color.green(pixelColor)),
+                                    Color.blue(changedPixel));
+                            break;
+                        case BLUE:
+                            pixelColor = Color.argb(Color.alpha(pixelColor),
+                                    Color.red(changedPixel), Color.green(changedPixel),
+                                    (int) (blue / 100.0 * Color.blue(pixelColor)));
+                            break;
+                    }
+                    localBitmap.setPixel(row, column, pixelColor);
+
+                }
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                                /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                    progressBar.setProgress(progress, true);
+                                } else
+                                    progressBar.setProgress(progress);*/
+                        imgPhoto.setImageBitmap(localBitmap);
+
+                    }
+                });
+                //imgPhoto.setImageBitmap(localBitmap);
+            }
+            imgPhoto.post(new Runnable() {
+                @Override
+                public void run() {
+                    bitmap = localBitmap;
+                    imgPhoto.setImageBitmap(bitmap);
+                    greenSeekBar.setEnabled(true);
+                    //progressBar.setVisibility(View.INVISIBLE);
+                }
+            });
+
                     /*handler.post(new Runnable() {
                         @Override
                         public void run() {
                             progressBar.setVisibility(View.INVISIBLE);
                         }
                     });*/
-                }
-            }).start();
         }
     }
 }
