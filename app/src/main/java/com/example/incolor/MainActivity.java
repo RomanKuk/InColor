@@ -1,13 +1,5 @@
 package com.example.incolor;
 
-import android.app.AlarmManager;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -15,7 +7,6 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -25,12 +16,11 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.incolor.ui.color_models.Conversions;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.Calendar;
 import java.util.Random;
-
-import static android.app.AlarmManager.*;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -100,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
             int dayColor = Color.rgb(red, green, blue);
             float[] hsv = new float[3];
             Color.colorToHSV(dayColor, hsv);
-            String hexColor = MainActivity.toHex(red, green, blue);
+            String hexColor = Conversions.toHex(red, green, blue);
             txtHex.setText(hexColor);
             txtRgb.setText("rgb("+red+", "+green+", "+blue+")");
             txtHsv.setText("hsv("+(int)hsv[0]+"º, "+(int)(hsv[1]*100)+"%, "+(int)(hsv[2]*100)+"%)");
@@ -117,17 +107,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private static String toBrowserHexValue(int number) {
-        StringBuilder builder = new StringBuilder(Integer.toHexString(number & 0xff));
-        while (builder.length() < 2) {
-            builder.append("0");
-        }
-        return builder.toString().toUpperCase();
-    }
-
-    public static String toHex(int r, int g, int b) {
-        return "#" + toBrowserHexValue(r) + toBrowserHexValue(g) + toBrowserHexValue(b);
-    }
 
     /*private void registerMyAlarmBroadcast()
     {
