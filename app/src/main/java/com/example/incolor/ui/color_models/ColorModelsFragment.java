@@ -393,7 +393,7 @@ public class ColorModelsFragment extends Fragment implements View.OnClickListene
     }
 
 
-    private class ColorizationHandler implements SeekBar.OnSeekBarChangeListener {
+    public class ColorizationHandler implements SeekBar.OnSeekBarChangeListener {
 
         int redProgress;
         int greenProgress;
@@ -403,7 +403,7 @@ public class ColorModelsFragment extends Fragment implements View.OnClickListene
         int[] hsl;
         int[] cmyk;
 
-        ColorizationHandler() {
+        public ColorizationHandler() {
             redProgress = 0;
             greenProgress = 0;
             blueProgress = 0;
