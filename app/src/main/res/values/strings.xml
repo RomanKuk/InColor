@@ -14,4 +14,10 @@
     <string name="start_text">Tap anywhere to take a photo</string>
     <string name="menu_color_models">Color Models</string>
     <string name="menu_info">Info</string>
+
+    <integer-array name="k_values">
+        <item>3</item>
+        <item>4</item>
+    </integer-array>
+
 </resources>

@@ -16,6 +16,8 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.incolor.R;
 
+import java.util.Objects;
+
 public class StartColorModelsFragment extends Fragment {
 
     @Override
@@ -32,21 +34,17 @@ public class StartColorModelsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 int cameraPermission = ContextCompat.checkSelfPermission(
-                        getActivity(), Manifest.permission.CAMERA);
-                if (cameraPermission == PackageManager.PERMISSION_GRANTED) {
-                    int writePermission = ContextCompat.checkSelfPermission(getActivity(),
-                            Manifest.permission.WRITE_EXTERNAL_STORAGE);
-                    if (writePermission == PackageManager.PERMISSION_GRANTED) {
+                        Objects.requireNonNull(getActivity()), Manifest.permission.CAMERA);
+                int writePermission = ContextCompat.checkSelfPermission(getActivity(),
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                if (cameraPermission == PackageManager.PERMISSION_GRANTED &&
+                        writePermission == PackageManager.PERMISSION_GRANTED) {
                         NavHostFragment.findNavController(StartColorModelsFragment.this)
                                 .navigate(R.id.action_StartColorModelsFragment_to_ColorModelsFragment);
-                    } else {
-                        ActivityCompat.requestPermissions(getActivity(),
-                                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                                2000);
-                    }
                 } else {
                     ActivityCompat.requestPermissions(getActivity(),
-                            new String[]{Manifest.permission.CAMERA}, 1);
+                            new String[]{Manifest.permission.CAMERA,
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
                 }
             }
         });
