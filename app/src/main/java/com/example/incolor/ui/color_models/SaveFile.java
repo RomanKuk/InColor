@@ -1,5 +1,6 @@
 package com.example.incolor.ui.color_models;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -16,14 +17,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class SaveFile {
+class SaveFile {
 
-    public static File saveFile(Activity myActivity, Bitmap bitmap) throws IOException {
+    static File saveFile(Activity myActivity, Bitmap bitmap) throws IOException {
 
         String externalStorageState = Environment.getExternalStorageState();
         // myFile = null;
         if (externalStorageState.equals(Environment.MEDIA_MOUNTED)) {
 
+            @SuppressLint("SimpleDateFormat")
             String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
             String imageFileName = timeStamp + "_";
             File filepath = myActivity.getExternalFilesDir("ColorModels");
