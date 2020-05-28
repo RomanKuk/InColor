@@ -1,7 +1,7 @@
 package com.example.incolor.ui.color_models;
 
 public class Conversions {
-    static int[] rgbToHsl(int red, int green, int blue) {
+    public static int[] rgbToHsl(int red, int green, int blue) {
         double redValue = (red / 255.0);
         double greenValue = (green / 255.0);
         double blueValue = (blue / 255.0);
@@ -32,7 +32,7 @@ public class Conversions {
         return new int[]{(int) h, (int) s, (int) l};
     }
 
-    static int[] rgbToHsv(int red, int green, int blue) {
+    public static int[] rgbToHsv(int red, int green, int blue) {
         double redValue = (red / 255.0);
         double greenValue = (green / 255.0);
         double blueValue = (blue / 255.0);
@@ -63,7 +63,7 @@ public class Conversions {
         return new int[]{(int) h, (int) s, (int) v};
     }
 
-    static int[] rgbToCmyk(int r, int g, int b) {
+    public static int[] rgbToCmyk(int r, int g, int b) {
         double percentageR = r / 255.0;
         double percentageG = g / 255.0;
         double percentageB = b / 255.0;

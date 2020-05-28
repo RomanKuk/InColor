@@ -42,7 +42,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -93,7 +92,7 @@ public class ColorModelsFragment extends Fragment implements View.OnClickListene
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        ImageButton btnTakeAPicture = Objects.requireNonNull(getView()).
+        ImageButton btnTakeAPicture = requireView().
                 findViewById(R.id.btnTakePicture);
         ImageButton btnSaveImg = getView().findViewById(R.id.btnSave);
         ImageButton btnShareImg = getView().findViewById(R.id.btnShare);
@@ -150,7 +149,7 @@ public class ColorModelsFragment extends Fragment implements View.OnClickListene
     private void deletePhoto(File image) {
         if (image != null) {
             if (image.exists()) {
-                Objects.requireNonNull(getActivity()).
+                requireActivity().
                         getApplicationContext().deleteFile(image.getName());
             }
         }
@@ -175,12 +174,12 @@ public class ColorModelsFragment extends Fragment implements View.OnClickListene
 
     private void capturePhoto() {
         int cameraPermission = ContextCompat.checkSelfPermission(
-                Objects.requireNonNull(getActivity()), Manifest.permission.CAMERA);
+                requireActivity(), Manifest.permission.CAMERA);
         if (cameraPermission == PackageManager.PERMISSION_GRANTED) {
-            int writePermission = ContextCompat.checkSelfPermission(getActivity(),
+            int writePermission = ContextCompat.checkSelfPermission(requireActivity(),
                     Manifest.permission.WRITE_EXTERNAL_STORAGE);
             if (writePermission == PackageManager.PERMISSION_GRANTED) {
-                PackageManager packageManager = getActivity().getPackageManager();
+                PackageManager packageManager = requireActivity().getPackageManager();
                 if (packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)) {
                     File photoFile = null;
                     try {
@@ -188,8 +187,8 @@ public class ColorModelsFragment extends Fragment implements View.OnClickListene
                         tempImgUri = imgUri;
                         tempPhoto = photo;
                         photo = photoFile;
-                        imgUri = FileProvider.getUriForFile(getActivity(),
-                                getActivity().getApplicationContext().getPackageName()
+                        imgUri = FileProvider.getUriForFile(requireActivity(),
+                                requireActivity().getApplicationContext().getPackageName()
                                         + ".provider", photoFile);
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -211,13 +210,13 @@ public class ColorModelsFragment extends Fragment implements View.OnClickListene
                             Toast.LENGTH_SHORT).show();
                 }
             } else {
-                ActivityCompat.requestPermissions(getActivity(),
+                ActivityCompat.requestPermissions(requireActivity(),
                         new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                         2000);
             }
         } else {
 
-            ActivityCompat.requestPermissions(getActivity(),
+            ActivityCompat.requestPermissions(requireActivity(),
                     new String[]{Manifest.permission.CAMERA}, 1);
         }
     }
@@ -228,7 +227,7 @@ public class ColorModelsFragment extends Fragment implements View.OnClickListene
             capturePhoto();
         } else if (view.getId() == R.id.btnSave) {
 
-            int permissionCheck = ContextCompat.checkSelfPermission(Objects.requireNonNull(getActivity()),
+            int permissionCheck = ContextCompat.checkSelfPermission(requireActivity(),
                     Manifest.permission.WRITE_EXTERNAL_STORAGE);
             if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
 
@@ -246,7 +245,7 @@ public class ColorModelsFragment extends Fragment implements View.OnClickListene
                 Toast.makeText(getActivity(), "The image is successfully " +
                         "saved to External Storage", Toast.LENGTH_SHORT).show();
             } else {
-                ActivityCompat.requestPermissions(getActivity(),
+                ActivityCompat.requestPermissions(requireActivity(),
                         new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                         2000);
             }
@@ -281,7 +280,7 @@ public class ColorModelsFragment extends Fragment implements View.OnClickListene
         @SuppressLint("SimpleDateFormat")
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = timeStamp + "_";
-        File filepath = Objects.requireNonNull(getActivity()).getCacheDir();
+        File filepath = requireActivity().getCacheDir();
         File dir = null;
         if (filepath != null) {
             dir = new File(filepath.getAbsolutePath());
@@ -307,7 +306,7 @@ public class ColorModelsFragment extends Fragment implements View.OnClickListene
     }
 
     private void checkRotation() throws IOException {
-        InputStream in = Objects.requireNonNull(getActivity()).
+        InputStream in = requireActivity().
                 getContentResolver().openInputStream(imgUri);
         ExifInterface ei = null;
         if (in != null) {
@@ -355,7 +354,7 @@ public class ColorModelsFragment extends Fragment implements View.OnClickListene
 
                 try {
                     bitmap = MediaStore.Images.Media.getBitmap(
-                            Objects.requireNonNull(getActivity()).getContentResolver(), imgUri);
+                            requireActivity().getContentResolver(), imgUri);
                     checkRotation();
                     imgPhoto.setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
 
