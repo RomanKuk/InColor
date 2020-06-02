@@ -15,7 +15,7 @@
             android:icon="@drawable/baseline_palette_black_48"
             android:title="@string/menu_color_models" />
         <item
-            android:id="@+id/nav_newton_fractal"
+            android:id="@+id/nav_dialog_newton_fractal"
             android:icon="@drawable/baseline_colorize_black_48"
             android:title="@string/menu_newton_fractal" />
     </group>
