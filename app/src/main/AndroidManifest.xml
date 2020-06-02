@@ -23,10 +23,11 @@
 
         <receiver
             android:name=".NotificationsReceiver"
-            android:enabled="true"
+            android:enabled="false"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
+                <action android:name="android.media.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>

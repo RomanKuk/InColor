@@ -6,4 +6,11 @@
     <cache-path
         name="ColorModelsCache"
         path="/" />
+
+    <external-files-path
+        name="NewtonFractals"
+        path="/" />
+    <cache-path
+        name="NewtonFractalsCache"
+        path="/" />
 </paths>

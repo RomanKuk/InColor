@@ -1,5 +1,6 @@
 package com.example.incolor;
 
+import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -12,8 +13,11 @@ import androidx.core.app.NotificationManagerCompat;
 
 import com.example.incolor.ui.color_models.Conversions;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
+
+import static android.content.Context.ALARM_SERVICE;
 
 public class NotificationsReceiver extends BroadcastReceiver {
 
@@ -21,6 +25,30 @@ public class NotificationsReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        if (intent.getAction().equals("android.intent.action.BOOT_COMPLETED")) {
+            SharedPreferences alarm = context.getSharedPreferences("ALARM", Context.MODE_PRIVATE);
+
+            Calendar firingCall = Calendar.getInstance();
+            firingCall.set(Calendar.HOUR_OF_DAY, 9); //TODO change to certain time
+            firingCall.set(Calendar.MINUTE, 0);
+            firingCall.set(Calendar.SECOND, 0);
+
+            Intent notificationIntent = new Intent(context, NotificationsReceiver.class);
+            notificationIntent.putExtra("id", 100);
+
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 100,
+                    notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
+
+            if (alarmManager != null) {
+                alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,
+                        firingCall.getTimeInMillis(),
+                        AlarmManager.INTERVAL_DAY, //TODO change to INTERVAL_DAY
+                        pendingIntent);
+            }
+            alarm.edit().putBoolean("check", false).apply();
+        }
+
         int notificationId = intent.getIntExtra("id", 0);
         Intent notificationIntent = new Intent(context, DayColorActivity.class);
         notificationIntent.putExtra("id", 100);

@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialogLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.newton_fractal.DialogNewtonFractalFragment">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fill_out_the_equation"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.065" />
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/z2Field"-->
+    <!--        android:layout_width="61dp"-->
+    <!--        android:layout_height="47dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:autofillHints="0"-->
+    <!--        android:ems="10"-->
+    <!--        android:gravity="right"-->
+    <!--        android:inputType="numberDecimal|numberSigned"-->
+    <!--        android:text="0"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.631"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/z4Field"-->
+    <!--        app:layout_constraintVertical_bias="0.042"-->
+    <!--        tools:ignore="LabelFor,RtlHardcoded" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView3"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:text="z^5 + "-->
+    <!--        android:textSize="18sp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.045"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/z5Field"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView8"-->
+    <!--        app:layout_constraintVertical_bias="0.084" />-->
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/z7Field"-->
+    <!--        android:layout_width="61dp"-->
+    <!--        android:layout_height="47dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:ems="10"-->
+    <!--        android:gravity="right"-->
+    <!--        android:text="0"-->
+    <!--        android:inputType="numberDecimal|numberSigned"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.245"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/z9Field"-->
+    <!--        app:layout_constraintVertical_bias="0.04"-->
+    <!--        android:autofillHints="0"-->
+    <!--        tools:ignore="LabelFor,RtlHardcoded" />-->
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="z^4 + "
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/z4Field"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.236" />
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/z8Field"-->
+    <!--        android:layout_width="61dp"-->
+    <!--        android:layout_height="47dp"-->
+    <!--        android:layout_marginTop="29dp"-->
+    <!--        android:ems="10"-->
+    <!--        android:gravity="right"-->
+    <!--        android:inputType="numberDecimal|numberSigned"-->
+    <!--        android:text="0"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.631"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView2"-->
+    <!--        app:layout_constraintVertical_bias="0.024"-->
+    <!--        android:autofillHints="0"-->
+    <!--        tools:ignore="LabelFor,RtlHardcoded" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView9"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="12dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:text="z^6 + "-->
+    <!--        android:textSize="18sp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.0"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/z6Field"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView4"-->
+    <!--        app:layout_constraintVertical_bias="0.08" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView10"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="12dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:text="z^2 + "-->
+    <!--        android:textSize="18sp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.0"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/z2Field"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView11"-->
+    <!--        app:layout_constraintVertical_bias="0.103" />-->
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/z9Field"-->
+    <!--        android:layout_width="61dp"-->
+    <!--        android:layout_height="47dp"-->
+    <!--        android:layout_marginTop="29dp"-->
+    <!--        android:ems="10"-->
+    <!--        android:gravity="right"-->
+    <!--        android:text="0"-->
+    <!--        android:inputType="numberDecimal|numberSigned"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.245"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView2"-->
+    <!--        app:layout_constraintVertical_bias="0.024"-->
+    <!--        android:autofillHints="0"-->
+    <!--        tools:ignore="LabelFor,RtlHardcoded" />-->
+
+    <EditText
+        android:id="@+id/z3Field"
+        android:layout_width="61dp"
+        android:layout_height="47dp"
+        android:autofillHints="1"
+        android:ems="10"
+        android:gravity="right"
+        android:inputType="numberDecimal|numberSigned"
+        android:text="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.225"
+        tools:ignore="LabelFor,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="z^3 + "
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/z3Field"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.236" />
+
+    <EditText
+        android:id="@+id/z4Field"
+        android:layout_width="61dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        android:autofillHints="0"
+        android:ems="10"
+        android:gravity="right"
+        android:inputType="numberDecimal|numberSigned"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.215"
+        tools:ignore="LabelFor,RtlHardcoded" />
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/z1Field"-->
+    <!--        android:layout_width="61dp"-->
+    <!--        android:layout_height="47dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:autofillHints="0"-->
+    <!--        android:ems="10"-->
+    <!--        android:gravity="right"-->
+    <!--        android:inputType="numberDecimal|numberSigned"-->
+    <!--        android:text="0"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.245"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/z3Field"-->
+    <!--        app:layout_constraintVertical_bias="0.028"-->
+    <!--        tools:ignore="LabelFor,RtlHardcoded" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView14"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="40dp"-->
+    <!--        android:text="z^9 + "-->
+    <!--        android:textSize="18sp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.045"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/z9Field"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView2"-->
+    <!--        app:layout_constraintVertical_bias="0.024" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView13"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:text="z +"-->
+    <!--        android:textSize="18sp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.041"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/z1Field"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView12"-->
+    <!--        app:layout_constraintVertical_bias="0.095" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView8"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="40dp"-->
+    <!--        android:text="z^7 + "-->
+    <!--        android:textSize="18sp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.045"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/z7Field"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView14"-->
+    <!--        app:layout_constraintVertical_bias="0.023" />-->
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/z6Field"-->
+    <!--        android:layout_width="61dp"-->
+    <!--        android:layout_height="47dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:ems="10"-->
+    <!--        android:gravity="right"-->
+    <!--        android:text="0"-->
+    <!--        android:inputType="numberDecimal|numberSigned"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.631"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/z8Field"-->
+    <!--        app:layout_constraintVertical_bias="0.04"-->
+    <!--        android:autofillHints="0"-->
+    <!--        tools:ignore="LabelFor,RtlHardcoded" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView4"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="40dp"-->
+    <!--        android:text="z^8 + "-->
+    <!--        android:textSize="18sp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.144"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/z8Field"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView2"-->
+    <!--        app:layout_constraintVertical_bias="0.024" />-->
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/z5Field"-->
+    <!--        android:layout_width="61dp"-->
+    <!--        android:layout_height="47dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:ems="10"-->
+    <!--        android:gravity="right"-->
+    <!--        android:text="0"-->
+    <!--        android:inputType="numberDecimal|numberSigned"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.245"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/z7Field"-->
+    <!--        app:layout_constraintVertical_bias="0.042"-->
+    <!--        android:autofillHints="0"-->
+    <!--        tools:ignore="LabelFor,RtlHardcoded" />-->
+
+    <EditText
+        android:id="@+id/z0Field"
+        android:layout_width="61dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        android:autofillHints="-1"
+        android:ems="10"
+        android:gravity="right"
+        android:inputType="numberDecimal|numberSigned"
+        android:text="-1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.865"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.215"
+        tools:ignore="RtlHardcoded" />
+
+    <Button
+        android:id="@+id/btnGenerate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/generate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

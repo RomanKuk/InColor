@@ -198,4 +198,84 @@
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>-->
+   <ImageView
+       android:id="@+id/imgFractal"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_marginStart="4dp"
+       android:layout_marginTop="4dp"
+       android:layout_marginEnd="4dp"
+       android:layout_marginBottom="10dp"
+       android:adjustViewBounds="true"
+       android:src="@drawable/white_background"
+       app:layout_constraintBottom_toTopOf="@+id/buttonsFractalLayout"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:srcCompat="@drawable/side_nav_bar" />
+
+   <LinearLayout
+       android:id="@+id/buttonsFractalLayout"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginStart="8dp"
+       android:layout_marginEnd="8dp"
+       android:layout_marginBottom="10dp"
+       android:orientation="horizontal"
+       android:visibility="visible"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent">
+
+      <ImageButton
+          android:id="@+id/btnSaveFractal"
+          style="@style/Widget.AppCompat.ImageButton"
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:background="#00FFFFFF"
+          android:backgroundTint="#00B30D0D"
+          android:scaleType="fitCenter"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:srcCompat="@android:drawable/ic_menu_save" />
+
+      <ImageButton
+          android:id="@+id/btnRegenerate"
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:background="#009C27B0"
+          android:scaleType="fitCenter"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toStartOf="@+id/btnShare"
+          app:layout_constraintStart_toEndOf="@+id/btnSave"
+          app:layout_constraintTop_toTopOf="parent"
+          app:srcCompat="@android:drawable/ic_menu_revert" />
+
+      <ImageButton
+          android:id="@+id/btnShareFractal"
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:background="#00FFFFFF"
+          android:scaleType="fitCenter"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:srcCompat="@android:drawable/ic_menu_share" />
+   </LinearLayout>
+
+   <ProgressBar
+       android:id="@+id/progressBar"
+       style="?android:attr/progressBarStyleHorizontal"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:max="100"
+       android:progress="0"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
