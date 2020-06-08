@@ -79,8 +79,13 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        header = navigationView.getHeaderView(0);
-        headerLayout = header.findViewById(R.id.headerLayout);
+        try {
+            header = navigationView.getHeaderView(0);
+            headerLayout = header.findViewById(R.id.headerLayout);
+        } catch (NullPointerException e) {
+            throw new NullPointerException("header value is null");
+        }
+
 
         setColorValues();
 
@@ -94,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         boolean first = alarm.getBoolean("check", true);
         if (first) {
             Calendar firingCall = Calendar.getInstance();
+            firingCall.setTimeInMillis(System.currentTimeMillis());
             firingCall.set(Calendar.HOUR_OF_DAY, 9); //TODO change to certain time
             firingCall.set(Calendar.MINUTE, 0);
             firingCall.set(Calendar.SECOND, 0);

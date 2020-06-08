@@ -123,39 +123,6 @@ public class NewtonFractal extends AsyncTask<Void, Integer, Bitmap> {
         int totalSteps = 0;
         int calculationSteps = width * height;
 
-        //ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newCachedThreadPool();
-        //executor.
-//
-
-//        ArrayList<CountDownLatch> latches = new ArrayList<CountDownLatch>(16);
-//        for(int i = 0; i < 16; i++)
-//            latches.add(new CountDownLatch(5));
-//        for(int k = 0; k < 16; k++) {
-//            final int finalK = k;
-//            threads.execute(new MyThread(latches.get(k), finalK, fractalImage));
-////            threads.execute(new Runnable() {
-////                @Override
-////                public void run() {
-////                    for (int y = finalK *height/16; y < (finalK +1)*height/16; y++) {
-////                        for (int x = 0; x < width; x++) {
-////
-////                            applyNewtonMethod(x, y);
-////                            int[] rgb = new int[3];
-////                            int color = getColorFromRoot(roots.get(new Point(x, y)), rgb);
-////                            fractalImage.setPixel(x, y, Color.rgb(rgb[0], rgb[1], rgb[2]
-////                                    /*Color.green(color), Color.blue(color)*/));
-////
-////                            //super.publishProgress(Math.round(100.0f * (totalSteps++) / calculationSteps));
-////                        }
-////                    }
-////                }
-////            });
-//
-////        }       try{
-//            for(int i = 0; i < 16; i++)
-//                latches.get(i).await();
-//        }catch (InterruptedException e) {}
-
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
 

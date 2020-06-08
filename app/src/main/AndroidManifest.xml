@@ -23,7 +23,7 @@
 
         <receiver
             android:name=".NotificationsReceiver"
-            android:enabled="false"
+            android:enabled="true"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.media.action.DISPLAY_NOTIFICATION" />

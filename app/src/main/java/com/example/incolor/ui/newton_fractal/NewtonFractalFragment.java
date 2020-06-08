@@ -87,8 +87,7 @@ public class NewtonFractalFragment extends Fragment implements View.OnClickListe
         if (view.getId() == R.id.btnRegenerate) {
             NavHostFragment.findNavController(NewtonFractalFragment.this)
                     .navigate(R.id.action_NewtonFractalFragment_to_DialogNewtonFragmentFragment);
-        } else if (view.getId() == R.id.btnSave) {
-
+        } else if (view.getId() == R.id.btnSaveFractal) {
             int permissionCheck = ContextCompat.checkSelfPermission(requireActivity(),
                     Manifest.permission.WRITE_EXTERNAL_STORAGE);
             if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
