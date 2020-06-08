@@ -16,8 +16,6 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.incolor.R;
 
-import java.util.Objects;
-
 public class StartColorModelsFragment extends Fragment {
 
     @Override
@@ -34,7 +32,7 @@ public class StartColorModelsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 int cameraPermission = ContextCompat.checkSelfPermission(
-                        Objects.requireNonNull(getActivity()), Manifest.permission.CAMERA);
+                        requireActivity(), Manifest.permission.CAMERA);
                 int writePermission = ContextCompat.checkSelfPermission(getActivity(),
                         Manifest.permission.WRITE_EXTERNAL_STORAGE);
                 if (cameraPermission == PackageManager.PERMISSION_GRANTED &&

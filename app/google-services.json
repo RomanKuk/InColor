@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "39656534364",
+    "firebase_url": "https://incolor-10059.firebaseio.com",
+    "project_id": "incolor-10059",
+    "storage_bucket": "incolor-10059.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:39656534364:android:2012fbb3323d29f42b1199",
+        "android_client_info": {
+          "package_name": "com.example.incolor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "39656534364-vsspvno4n0mvusu8iq5rth14447tvmof.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGzkrTXZUsxinfaM3Q_ChZx3zYixciIC8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "39656534364-vsspvno4n0mvusu8iq5rth14447tvmof.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

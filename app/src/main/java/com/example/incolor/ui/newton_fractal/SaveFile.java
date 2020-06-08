@@ -1,4 +1,4 @@
-package com.example.incolor.ui.color_models;
+package com.example.incolor.ui.newton_fractal;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -28,7 +28,7 @@ class SaveFile {
             @SuppressLint("SimpleDateFormat")
             String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
             String imageFileName = timeStamp + "_";
-            File filepath = myActivity.getExternalFilesDir("ColorModels");
+            File filepath = myActivity.getExternalFilesDir("NewtonFractals");
             File dir = null;
             if (filepath != null) {
                 dir = new File(filepath.getAbsolutePath());
@@ -54,7 +54,7 @@ class SaveFile {
                     if (isImageSaveWell) {
                         ContentValues values = new ContentValues();
                         values.put(MediaStore.Images.Media.TITLE, imageFileName);
-                        values.put(MediaStore.Images.Media.DESCRIPTION, "Image was taken with InColor");
+                        values.put(MediaStore.Images.Media.DESCRIPTION, "Fractal image was made with InColor");
 
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                             values.put(MediaStore.Images.ImageColumns.BUCKET_DISPLAY_NAME,
@@ -70,18 +70,18 @@ class SaveFile {
 
                         return photo;
                     } else {
-                        throw new IOException("The image is not saved successfully " +
+                        throw new IOException("The fractal image is not saved successfully " +
                                 "to External Storage");
                     }
                 } catch (Exception e) {
-                    throw new IOException("The operation of saving the Image " +
+                    throw new IOException("The operation of saving the fractal image " +
                             "to External Storage went wrong");
                 }
 
             } else {
 
                 throw new IOException("There is no enough space " +
-                        "in order to save the image to External Storage");
+                        "in order to save the fractal image to External Storage");
             }
 
         } else {
@@ -90,4 +90,3 @@ class SaveFile {
     }
 
 }
-
